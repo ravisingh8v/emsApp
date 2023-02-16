@@ -1,6 +1,55 @@
-/* 
+/*
    Brand Logo and Primary Navigation
 */
-.primary-nav {
-  
+.header-wrapper {
+  // left side profile details section
+  .profile {
+    .profile-wrapper-header {
+      width: 40px;
+      height: 40px;
+      img {
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .profile-name-wrapper {
+      .profile-name-header {
+        position: relative;
+        &::before {
+          content: "";
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background-color: $success;
+          position: absolute;
+          right: -15px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+  // end
+  .header-actions-wrapper {
+    .action-btn {
+      margin: 0 5px;
+      padding: 1;
+      background-color: rgba($secondary, 0.2);
+      border-radius: $primary-radius;
+      .notification-text {
+        position: relative;
+        &::after {
+          content: "";
+          width: 5px;
+          height: 5px;
+          position: absolute;
+          background-color: $secondary;
+          border-radius: 50%;
+          top: 0;
+          right: -7px;
+        }
+      }
+    }
+  }
 }

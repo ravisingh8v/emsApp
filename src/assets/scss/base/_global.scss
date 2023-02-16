@@ -8,3 +8,13 @@ html,
 body {
   height: 100%;
 }
+body {
+  background-color: $body-bg;
+  font-family: $font-family-sans-serif;
+  color: $light;
+}
+
+// helper classes
+.primary-radius {
+  border-radius: $primary-radius;
+}
