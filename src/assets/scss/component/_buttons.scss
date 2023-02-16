@@ -1,1 +1,11 @@
 // Button styles goes here
+// utilities
+.action-btn {
+  padding: 10px 30px;
+  font-size: $h7-font-size;
+  color: $white;
+  border: none;
+  &:hover {
+    color: $white;
+  }
+}
