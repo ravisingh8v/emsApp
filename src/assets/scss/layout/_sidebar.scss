@@ -1,0 +1,71 @@
+%common-after {
+  &::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: 100%;
+    background-color: red;
+    border-radius: 50%;
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    box-shadow: 10px -10px 0 2px $white;
+  }
+}
+%common-before {
+  &::before {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: -30px;
+    background-color: red;
+    border-radius: 50%;
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    box-shadow: 10px 10px 0 1px white;
+  }
+}
+%common-hover-text {
+  a {
+    background-color: $primary;
+    color: white;
+  }
+}
+
+// sidebar
+.sidebar-item.active {
+  position: relative;
+  background-color: $white;
+  @extend %common-after;
+  @extend %common-hover-text;
+}
+.sidebar-item {
+  a {
+    color: $primary;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
+  &:nth-child(1) {
+    &::before {
+      content: "";
+      display: none;
+    }
+  }
+}
+
+.sidebar-item {
+  &:first-child {
+    &::after {
+      content: "";
+    }
+  }
+  &:hover {
+    position: relative;
+    background-color: $white;
+    @extend %common-hover-text;
+    @extend %common-after;
+    @extend %common-before;
+  }
+}

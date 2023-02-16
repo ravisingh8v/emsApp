@@ -35,7 +35,7 @@
     .action-btn {
       margin: 0 5px;
       padding: 1;
-      background-color: rgba($secondary, 0.2);
+      background-color: $bg-secondary-transparent;
       border-radius: $primary-radius;
       .notification-text {
         position: relative;

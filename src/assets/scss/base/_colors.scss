@@ -1,14 +1,14 @@
 // Theme Primary Color
 
 $primary: #15074e;
-$body-bg: #f9fafe;
+$body-bg: #f1f1f8;
 // Mainly use for UI controls like Buttons
 $secondary: #8675eb;
 
 //
 $success: rgb(4, 153, 4);
 // Used for Footer Section
-$white: #f9f9fc;
+$white: #ffffff;
 
 // Mainly use for Normal Text color
 $gray: #989d9e;
@@ -16,6 +16,9 @@ $gray: #989d9e;
 // Additional Shades of gray color
 $light: #f8fafc;
 $extra-light: #fcfcfc;
+
+// link bg opacity
+$bg-secondary-transparent: rgba($secondary, 0.2);
 
 // Dedicated for button text only
 $btn-text-primary: $primary;
