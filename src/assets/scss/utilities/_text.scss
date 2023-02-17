@@ -1,7 +1,14 @@
 // Typographical styles goes here
+a,
 a:hover,
 a:active,
 a:visited,
 a:link {
   text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
 }

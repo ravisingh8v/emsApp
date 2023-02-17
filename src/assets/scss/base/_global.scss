@@ -9,12 +9,18 @@ body {
   height: 100%;
 }
 body {
+  // background-color: $body-bg;
   background-color: $body-bg;
   font-family: $font-family-sans-serif;
   color: $light;
 }
-
+.body-bg {
+  background-color: $body-bg;
+}
 // helper classes
 .primary-radius {
   border-radius: $primary-radius;
+}
+.bg-secondary-transparent {
+  background-color: $bg-secondary-transparent;
 }
