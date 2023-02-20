@@ -2,6 +2,8 @@
 
 $primary: #15074e;
 $body-bg: #f1f1f8;
+$link: rgb(65, 65, 255);
+$danger: rgba(253, 53, 53, 0.973);
 // Mainly use for UI controls like Buttons
 $secondary: #8675eb;
 
@@ -19,6 +21,7 @@ $extra-light: #fcfcfc;
 
 // link bg opacity
 $bg-secondary-transparent: rgba($secondary, 0.2);
+$transparent: rgba($secondary, 0.2);
 
 // Dedicated for button text only
 $btn-text-primary: $primary;
@@ -30,4 +33,7 @@ $theme-colors: (
   "light": $light,
   "white": $white,
   "success": $success,
+  "link": $link,
+  "transparent": $transparent,
+  "danger": $danger,
 );

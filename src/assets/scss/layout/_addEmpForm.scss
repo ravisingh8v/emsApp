@@ -1,0 +1,21 @@
+.form {
+  width: 600px;
+  @media (max-width: 780px) {
+    width: auto;
+  }
+  .profile {
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: url("../../images/default-profile.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+}
