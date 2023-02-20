@@ -1,1 +1,32 @@
 // Card styles goes here
+.card {
+  .profile-wrapper {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 50%;
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+  .card-menu {
+    top: 5px;
+    right: 10px;
+  }
+  &:hover {
+    cursor: pointer;
+    .bi-three-dots-vertical {
+      color: $secondary;
+    }
+  }
+  .menu_action {
+    display: none;
+  }
+  input[type="radio"]:checked + .menu_action {
+    display: unset;
+  }
+  input[type="radio"]:checked ~ .bi-three-dots-vertical {
+    display: none;
+  }
+}

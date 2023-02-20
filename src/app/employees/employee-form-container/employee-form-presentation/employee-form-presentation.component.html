@@ -1,1 +1,51 @@
-<p>employee-form-presentation works!</p>
+<div class="form bg-white p-5 card">
+  <form action="" class="w-100" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <!-- profile  -->
+    <div>
+      <input type="file" class="form-control d-none" id="profile" (change)="onFileSelect($event)">
+      <label class="profile d-flex justify-content-center align-items-center" for="profile">
+        <img src="{{base64}}" alt="">
+      </label>
+    </div>
+    <!-- full name -->
+    <div class="my-3">
+      <input type="text" class="form-control" placeholder="Enter Full Name" formControlName="fullName">
+      <div class="text-danger"
+        *ngIf="(employeeForm.controls['fullName'].touched && employeeForm.controls['fullName'].invalid)">
+        <p>this field is required</p>
+      </div>
+    </div>
+    <!-- department -->
+    <div class="my-3">
+      <input type="text" class="form-control" placeholder="Department" formControlName="department">
+      <div class="text-danger"
+        *ngIf="(employeeForm.controls['department'].touched && employeeForm.controls['department'].invalid)">
+        <p>this field is required</p>
+      </div>
+    </div>
+    <!-- phone number  -->
+    <div class="my-3">
+      <input type="text" class="form-control" placeholder="Phone Number" formControlName="phoneNumber">
+      <div class="text-danger"
+        *ngIf="(employeeForm.controls['phoneNumber'].touched && employeeForm.controls['phoneNumber'].invalid)">
+        <p>this field is required</p>
+      </div>
+    </div>
+    <!-- Email  -->
+    <div class="my-3">
+      <input type="text" class="form-control" placeholder="Email" formControlName="email">
+      <div class="text-danger"
+        *ngIf="(employeeForm.controls['email'].touched && employeeForm.controls['email'].invalid)">
+        <p>this field is required</p>
+      </div>
+    </div>
+    <div class="d-flex w-100 my-4">
+      <button class="btn btn-primary form me-1 w-50" type="submit" [disabled]="employeeForm.invalid"
+        [ngClass]="{'disabled not-allowed': employeeForm.invalid}">Submit</button>
+      <button class="btn btn-transparent form ms-1 w-50" type="reset" (click)="onCancel()">Cancel</button>
+    </div>
+
+
+  </form>
+
+</div>
