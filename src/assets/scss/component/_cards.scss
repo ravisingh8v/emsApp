@@ -5,6 +5,10 @@
     height: 80px;
     overflow: hidden;
     border-radius: 50%;
+    background: url("../../images/default-profile.png");
+    background-size: cover;
+    background-position: center;
+
     img {
       height: auto;
       width: 100%;

@@ -2,12 +2,12 @@
   <div class="px-3 pt-3">
     <app-header></app-header>
   </div>
-  <section class="flex-grow-1 d-flex mx-3 mt-3">
+  <section class="flex-grow-1 d-flex mx-3 mt-3 overflow-hidden">
     <!-- sidebar  -->
     <div>
       <app-sidebar></app-sidebar>
     </div>
-    <main class="flex-grow-1 bg-white shadow rounded-0 rounded-end px-5 pt-4">
+    <main class="flex-grow-1 bg-white shadow rounded-0 rounded-end px-5 pt-4 overflow-auto pb-2">
       <router-outlet></router-outlet>
     </main>
   </section>

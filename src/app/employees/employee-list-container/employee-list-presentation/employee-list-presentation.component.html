@@ -1,6 +1,6 @@
 <div class="list_main_wrapper">
   <!-- search and add button  -->
-  <div class="d-flex  justify-content-between align-items-center py-4">
+  <div class="search-section bg-white d-flex  justify-content-between align-items-center py-4 position-sticky">
     <div class="search">
       <input type="text" class="form-control bg-white" placeholder="Search">
     </div>
@@ -9,39 +9,39 @@
   <!-- employees list  -->
   <div class="list-wrapper">
     <div class="list row">
-      <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+      <div class="col-12 mt-3 col-sm-6 col-lg-4 col-xl-3" *ngFor="let empData of employeeList let i=index">
         <div class="card position-relative border bg-light d-flex flex-column align-items-center py-4">
           <!-- menu icon  -->
           <div class="d-flex position-absolute card-menu">
-            <input type="radio" name="person" class="d-none" id="menu_action1">
+            <input type="radio" name="person" class="d-none" id="menu_action{{i}}">
             <div class="me-2 menu_action">
               <a class="bi bi-pencil-square mx-1"></a>
-              <a class="bi bi-trash3 mx-1"></a>
+              <a class="bi bi-trash3 mx-1" (click)="deleteEmployee(empData)"></a>
             </div>
-            <label class="bi bi-three-dots-vertical" for="menu_action1"></label>
+            <label class="bi bi-three-dots-vertical" for="menu_action{{i}}"></label>
 
           </div>
           <!-- profile wrapper  -->
           <div class="profile-wrapper d-flex justify-content-center align-items-center">
-            <img src="./../../../../assets/images/profile-pic.jpg" alt="">
+            <img src="{{empData.profile}}" alt="">
           </div>
           <!-- name  -->
-          <div class="mt-2"><span class="text-primary fw-bold">Edward Stewward</span></div>
+          <div class="mt-2"><span class="text-primary fw-bold">{{empData.fullName}}</span></div>
           <!-- department  -->
-          <div class="mt-2"><span class="text-primary fs-7 py-1 px-3 rounded-pill bg-secondary-transparent ">Web
-              Designer</span>
+          <div class="mt-2"><span
+              class="text-primary fs-7 py-1 px-3 rounded-pill bg-secondary-transparent ">{{empData.department}}</span>
           </div>
           <!-- number  -->
-          <div class="mt-2"><span class="text-primary fs-6 fw-light">07854-45454</span></div>
+          <div class="mt-2"><span class="text-primary fs-6 fw-light">{{empData.phoneNumber}}</span></div>
           <!-- email  -->
-          <div class="mt-2"><span class="text-link fs-6 fw-light">ravi.singh@1rivet.com</span></div>
+          <div class="mt-2"><span class="text-link fs-6 fw-light">{{empData.email}}</span></div>
         </div>
       </div>
       <!-- card 2 -->
-      <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-        <div class="card position-relative border bg-light d-flex flex-column align-items-center py-4">
-          <!-- menu icon  -->
-          <div class="d-flex position-absolute card-menu">
+      <!-- <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+        <div class="card position-relative border bg-light d-flex flex-column align-items-center py-4"> -->
+      <!-- menu icon  -->
+      <!-- <div class="d-flex position-absolute card-menu">
             <input type="radio" class="d-none" name="person" id="menu_action2">
             <div class="me-2 menu_action">
               <a class="bi bi-pencil-square mx-1"></a>
@@ -49,23 +49,23 @@
             </div>
             <label class="bi bi-three-dots-vertical" for="menu_action2"></label>
 
-          </div>
-          <!-- profile wrapper  -->
-          <div class="profile-wrapper d-flex justify-content-center align-items-center">
+          </div> -->
+      <!-- profile wrapper  -->
+      <!-- <div class="profile-wrapper d-flex justify-content-center align-items-center">
             <img src="./../../../../assets/images/profile-pic.jpg" alt="">
-          </div>
-          <!-- name  -->
-          <div class="mt-2"><span class="text-primary fw-bold">Edward Stewward</span></div>
-          <!-- department  -->
-          <div class="mt-2"><span class="text-primary fs-7 py-1 px-3 rounded-pill bg-secondary-transparent ">Web
+          </div> -->
+      <!-- name  -->
+      <!-- <div class="mt-2"><span class="text-primary fw-bold">Edward Stewward</span></div> -->
+      <!-- department  -->
+      <!-- <div class="mt-2"><span class="text-primary fs-7 py-1 px-3 rounded-pill bg-secondary-transparent ">Web
               Designer</span>
-          </div>
-          <!-- number  -->
-          <div class="mt-2"><span class="text-primary fs-6 fw-light">07854-45454</span></div>
-          <!-- email  -->
-          <div class="mt-2"><span class="text-link fs-6 fw-light">ravi.singh@1rivet.com</span></div>
+          </div> -->
+      <!-- number  -->
+      <!-- <div class="mt-2"><span class="text-primary fs-6 fw-light">07854-45454</span></div> -->
+      <!-- email  -->
+      <!-- <div class="mt-2"><span class="text-link fs-6 fw-light">ravi.singh@1rivet.com</span></div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
