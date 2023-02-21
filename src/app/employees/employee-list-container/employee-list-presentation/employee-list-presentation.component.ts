@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OverlayService } from 'src/app/core/service/overlay.service';
 import { EmployeeFormContainerComponent } from '../../employee-form-container/employee-form-container.component';
+import { employee } from '../../employee.model';
 import { EmployeeListPresenterService } from '../employee-list-presenter/employee-list-presenter.service';
 
 @Component({
@@ -9,16 +10,27 @@ import { EmployeeListPresenterService } from '../employee-list-presenter/employe
   styleUrls: ['./employee-list-presentation.component.scss'],
   viewProviders: [EmployeeListPresenterService],
 })
-export class EmployeeListPresentationComponent {
-  public menuAction: any;
+export class EmployeeListPresentationComponent implements OnInit {
+  // public menuAction: any;
+  @Input() set employeeList(response: employee[] | null) {
+    if (response) {
+      this._employeeList = response;
+    }
+  }
+  public get employeeList() {
+    return this._employeeList;
+  }
+  private _employeeList!: employee[];
   constructor(
     private employeeListService: EmployeeListPresenterService,
     private overlaySerive: OverlayService
   ) {}
+  ngOnInit(): void {}
+
   openForm() {
     this.overlaySerive.open(EmployeeFormContainerComponent);
   }
-  // openMenu() {
-  //   this.employeeListService.openMenu();
-  // }
+  deleteEmployee(emp: any) {
+    this.employeeListService.delete(emp.id);
+  }
 }

@@ -9,43 +9,56 @@
     </div>
     <!-- full name -->
     <div class="my-3">
-      <input type="text" class="form-control" placeholder="Enter Full Name" formControlName="fullName">
+      <input type="text" class="form-control" placeholder="Enter Full Name" formControlName="fullName"
+        [ngClass]="{'border-danger':employeeForm.controls['fullName'].invalid && employeeForm.controls['fullName'].touched}">
       <div class="text-danger"
         *ngIf="(employeeForm.controls['fullName'].touched && employeeForm.controls['fullName'].invalid)">
-        <p>this field is required</p>
+        <p *ngIf="employeeForm.controls['fullName'].errors?.['required']">this field is required</p>
+        <p *ngIf="employeeForm.controls['fullName'].errors?.['minlength']">this field contains atleast 2 letter</p>
       </div>
     </div>
     <!-- department -->
     <div class="my-3">
-      <input type="text" class="form-control" placeholder="Department" formControlName="department">
+      <input type="text" class="form-control" placeholder="Department" formControlName="department"
+        [ngClass]="{'border-danger':employeeForm.controls['department'].invalid && employeeForm.controls['department'].touched}">
       <div class="text-danger"
         *ngIf="(employeeForm.controls['department'].touched && employeeForm.controls['department'].invalid)">
-        <p>this field is required</p>
+        <p *ngIf="employeeForm.controls['department'].errors?.['required']">this field is required</p>
+        <p
+          *ngIf="employeeForm.controls['department'].errors?.['minlength'] && !(employeeForm.controls['department'].errors?.['pattern'])">
+          this field contains atleast 4 letter</p>
+        <p *ngIf="employeeForm.controls['department'].errors?.['pattern']">this field only contains letter</p>
+
       </div>
     </div>
     <!-- phone number  -->
     <div class="my-3">
-      <input type="text" class="form-control" placeholder="Phone Number" formControlName="phoneNumber">
+      <input type="text" class="form-control" placeholder="Phone Number" formControlName="phoneNumber"
+        [ngClass]="{'border-danger':employeeForm.controls['phoneNumber'].invalid && employeeForm.controls['phoneNumber'].touched}">
       <div class="text-danger"
         *ngIf="(employeeForm.controls['phoneNumber'].touched && employeeForm.controls['phoneNumber'].invalid)">
-        <p>this field is required</p>
+        <p *ngIf="employeeForm.controls['phoneNumber'].errors?.['required']">this field is required</p>
+        <p
+          *ngIf="!(employeeForm.controls['phoneNumber'].errors?.['pattern'])&&(employeeForm.controls['phoneNumber'].errors?.['minlength'] || employeeForm.controls['phoneNumber'].errors?.['maxlength'])">
+          this field contains only 10 numbers</p>
+        <p *ngIf="employeeForm.controls['phoneNumber'].errors?.['pattern'] ">
+          this field only contains number</p>
       </div>
     </div>
     <!-- Email  -->
     <div class="my-3">
-      <input type="text" class="form-control" placeholder="Email" formControlName="email">
+      <input type="text" class="form-control" placeholder="Email" formControlName="email"
+        [ngClass]="{'border-danger':employeeForm.controls['email'].invalid && employeeForm.controls['email'].touched}">
       <div class="text-danger"
         *ngIf="(employeeForm.controls['email'].touched && employeeForm.controls['email'].invalid)">
-        <p>this field is required</p>
+        <p *ngIf="employeeForm.controls['email'].errors?.['required']">this field is required</p>
+        <p *ngIf="employeeForm.controls['email'].errors?.['pattern']">email pattern not match</p>
       </div>
     </div>
     <div class="d-flex w-100 my-4">
-      <button class="btn btn-primary form me-1 w-50" type="submit" [disabled]="employeeForm.invalid"
-        [ngClass]="{'disabled not-allowed': employeeForm.invalid}">Submit</button>
+      <button class="btn btn-primary form me-1 w-50" type="submit" [disabled]="!(employeeForm.valid)">Submit</button>
       <button class="btn btn-transparent form ms-1 w-50" type="reset" (click)="onCancel()">Cancel</button>
     </div>
-
-
   </form>
 
 </div>

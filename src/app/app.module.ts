@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { HttpClientModule } from '@angular/common/http';
+import { EmployeeApiService } from './employees/employee-api.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,8 +16,9 @@ import { OverlayModule } from '@angular/cdk/overlay';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [OverlayModule, EmployeeApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
