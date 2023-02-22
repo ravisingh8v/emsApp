@@ -9,9 +9,10 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeeApiService } from './employees/service/employee-api.service';
 import { EmployeeCommunicationService } from './employees/service/employee-communication.service';
+import { FilterPipe } from './shared/filter.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FilterPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
