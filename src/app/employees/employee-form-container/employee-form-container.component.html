@@ -1,1 +1,2 @@
-<app-employee-form-presentation (add)="getFormData($event)"></app-employee-form-presentation>
+<app-employee-form-presentation (add)="getFormData($event)" (editEmp)="editEmp($event)" (empId)="getEmpId($event)"
+  [getEmployee]="getEmployee$ | async"></app-employee-form-presentation>

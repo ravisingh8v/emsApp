@@ -1,25 +1,34 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { employee } from '../../employee.model';
+import { EmployeeCommunicationService } from '../../service/employee-communication.service';
 
 @Injectable()
-export class EmployeeFormPresenterService {
+export class EmployeeFormPresenterService implements OnInit {
   public image_file!: File;
   public baseString!: string;
   public profileImage: Subject<any>;
   public formData: Subject<any>;
   public formData$: Observable<any>;
+  public empId!: Subject<number>;
 
   /**
    *
    * @param _formb
    */
-  constructor(private _formb: FormBuilder) {
+  constructor(
+    private _formb: FormBuilder,
+    private _Route: Router,
+    public communication: EmployeeCommunicationService
+  ) {
     this.formData = new Subject();
     this.formData$ = this.formData.asObservable();
     this.profileImage = new Subject();
+    this.empId = new Subject();
   }
-
+  ngOnInit(): void {}
   /**
    *
    * @returns

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EmployeeFormContainerComponent } from './employee-form-container/employee-form-container.component';
 import { EmployeeListContainerComponent } from './employee-list-container/employee-list-container.component';
 import { EmployeesComponent } from './employees.component';
 
@@ -9,7 +10,10 @@ const routes: Routes = [
     component: EmployeesComponent,
     children: [
       { path: '', redirectTo: 'employee-list', pathMatch: 'full' },
-      { path: 'employee-list', component: EmployeeListContainerComponent },
+      {
+        path: 'employee-list',
+        component: EmployeeListContainerComponent,
+      },
     ],
   },
 ];

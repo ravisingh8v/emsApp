@@ -4,7 +4,9 @@
     <div class="search">
       <input type="text" class="form-control bg-white" placeholder="Search">
     </div>
-    <a class="add-emplopyee action-btn bg-primary rounded-pill fs-6" (click)="openForm()">Add a new employee</a>
+    <a class="add-emplopyee action-btn bg-primary rounded-pill fs-6" (click)="openForm()">Add
+      a new
+      employee</a>
   </div>
   <!-- employees list  -->
   <div class="list-wrapper">
@@ -15,7 +17,7 @@
           <div class="d-flex position-absolute card-menu">
             <input type="radio" name="person" class="d-none" id="menu_action{{i}}">
             <div class="me-2 menu_action">
-              <a class="bi bi-pencil-square mx-1"></a>
+              <a class="bi bi-pencil-square mx-1" (click)="editEmployee(empData)"></a>
               <a class="bi bi-trash3 mx-1" (click)="deleteEmployee(empData)"></a>
             </div>
             <label class="bi bi-three-dots-vertical" for="menu_action{{i}}"></label>

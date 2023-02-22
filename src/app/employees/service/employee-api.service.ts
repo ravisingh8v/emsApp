@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { employee } from './employee.model';
+import { employee } from '../employee.model';
 
 @Injectable()
 export class EmployeeApiService {
@@ -27,7 +27,8 @@ export class EmployeeApiService {
   deleteEmployee(id: number): Observable<employee> {
     return this._http.delete<employee>(`${this.baseUrl}` + `${id}`);
   }
-  updateEmployee(data: employee): Observable<employee> {
-    return this._http.put<employee>(this.baseUrl, data);
+  updateEmployee(data: employee, id: number): Observable<employee> {
+    const url = this.baseUrl + id;
+    return this._http.put<employee>(url, data);
   }
 }

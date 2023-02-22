@@ -8,7 +8,9 @@ import { EmployeeFormPresentationComponent } from './employee-form-container/emp
 import { EmployeeListContainerComponent } from './employee-list-container/employee-list-container.component';
 import { EmployeeListPresentationComponent } from './employee-list-container/employee-list-presentation/employee-list-presentation.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EmployeeApiService } from './employee-api.service';
+import { EmployeeApiService } from './service/employee-api.service';
+import { HttpClientModule } from '@angular/common/http';
+import { EmployeeCommunicationService } from './service/employee-communication.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,12 @@ import { EmployeeApiService } from './employee-api.service';
     EmployeeListContainerComponent,
     EmployeeListPresentationComponent,
   ],
-  imports: [CommonModule, EmployeesRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    EmployeesRoutingModule,
+    ReactiveFormsModule,
+    // HttpClientModule,
+  ],
+  providers: [],
 })
 export class EmployeesModule {}
