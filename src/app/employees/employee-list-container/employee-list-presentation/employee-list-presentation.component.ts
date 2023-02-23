@@ -22,8 +22,8 @@ export class EmployeeListPresentationComponent implements OnInit {
   public get employeeList() {
     return this._employeeList;
   }
-
   private _employeeList!: employee[];
+  public search: any;
   constructor(
     private employeeListService: EmployeeListPresenterService,
     private overlaySerive: OverlayService,

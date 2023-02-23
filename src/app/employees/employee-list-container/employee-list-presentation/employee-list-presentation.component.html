@@ -2,7 +2,7 @@
   <!-- search and add button  -->
   <div class="search-section bg-white d-flex  justify-content-between align-items-center py-4 position-sticky">
     <div class="search">
-      <input type="text" class="form-control bg-white" placeholder="Search">
+      <input type="text" class="form-control bg-white" placeholder="Search" [(ngModel)]="search">
     </div>
     <a class="add-emplopyee action-btn bg-primary rounded-pill fs-6" (click)="openForm()">Add
       a new
@@ -11,7 +11,8 @@
   <!-- employees list  -->
   <div class="list-wrapper">
     <div class="list row">
-      <div class="col-12 mt-3 col-sm-6 col-lg-4 col-xl-3" *ngFor="let empData of employeeList let i=index">
+      <div class="col-12 mt-3 col-sm-6 col-lg-4 col-xl-3"
+        *ngFor="let empData of employeeList | filter:search  let i=index ">
         <div class="card position-relative border bg-light d-flex flex-column align-items-center py-4">
           <!-- menu icon  -->
           <div class="d-flex position-absolute card-menu">

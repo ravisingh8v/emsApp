@@ -9,16 +9,18 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeeApiService } from './employees/service/employee-api.service';
 import { EmployeeCommunicationService } from './employees/service/employee-communication.service';
-import { FilterPipe } from './shared/filter.pipe';
+import { ShareModule } from './share/share.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, FilterPipe],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
+    ShareModule,
   ],
   providers: [OverlayModule, EmployeeCommunicationService, EmployeeApiService],
   bootstrap: [AppComponent],

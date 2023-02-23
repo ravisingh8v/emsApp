@@ -30,7 +30,10 @@ export class EmployeeFormPresentationComponent implements OnInit {
     if (res) {
       this._getEmployee = res;
       this.employeeForm.patchValue(this._getEmployee);
-      console.log(res.id);
+      this.employeeForm.controls['profile'].patchValue(
+        this._getEmployee.profile
+      );
+      // console.log(res.id);
     }
   }
   public get getEmployee() {

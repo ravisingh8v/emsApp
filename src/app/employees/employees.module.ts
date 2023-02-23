@@ -7,10 +7,11 @@ import { EmployeeFormContainerComponent } from './employee-form-container/employ
 import { EmployeeFormPresentationComponent } from './employee-form-container/employee-form-presentation/employee-form-presentation.component';
 import { EmployeeListContainerComponent } from './employee-list-container/employee-list-container.component';
 import { EmployeeListPresentationComponent } from './employee-list-container/employee-list-presentation/employee-list-presentation.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeApiService } from './service/employee-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeeCommunicationService } from './service/employee-communication.service';
+import { ShareModule } from '../share/share.module';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,10 @@ import { EmployeeCommunicationService } from './service/employee-communication.s
   imports: [
     CommonModule,
     EmployeesRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     // HttpClientModule,
+    ShareModule,
   ],
   providers: [],
 })
