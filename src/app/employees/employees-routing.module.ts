@@ -9,9 +9,13 @@ const routes: Routes = [
     path: '',
     component: EmployeesComponent,
     children: [
-      { path: '', redirectTo: 'employee-list', pathMatch: 'full' },
+      { path: '', redirectTo: 'employees-list', pathMatch: 'full' },
       {
-        path: 'employee-list',
+        path: 'employees-list',
+        component: EmployeeListContainerComponent,
+      },
+      {
+        path: 'add-employee',
         component: EmployeeListContainerComponent,
       },
     ],

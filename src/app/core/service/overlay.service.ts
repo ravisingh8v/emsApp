@@ -21,15 +21,7 @@ export class OverlayService {
     const portal = new ComponentPortal(component);
     const comopnentRef = this.overlayRef.attach(portal);
 
-    this.overlayRef.backdropClick().subscribe((res) => {
-      console.log(res.type == 'click');
-      if (res.type == 'click') {
-        const confirmation = confirm('are you sure');
-        if (confirmation) {
-          this.overlayRef.detach();
-        }
-      }
-    });
+    this.overlayRef.backdropClick().subscribe((res) => {});
 
     return comopnentRef;
   }

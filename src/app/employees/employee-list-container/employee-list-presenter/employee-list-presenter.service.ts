@@ -25,8 +25,8 @@ export class EmployeeListPresenterService {
   }
   editEmployee(id: number) {
     this.communication._getEmpId.next(id);
-    setTimeout(() => {
-      this.communication._getEmpId.next(0);
-    }, 0);
+    // setTimeout(() => {
+    //   this.communication._getEmpId.next(0);
+    // }, 0);
   }
 }

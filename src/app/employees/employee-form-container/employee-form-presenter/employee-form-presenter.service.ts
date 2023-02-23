@@ -86,7 +86,9 @@ export class EmployeeFormPresenterService implements OnInit {
       this.profileImage.next(this.baseString);
     };
   }
-
+  onCancel() {
+    this.communication._getEmpId.next('');
+  }
   /**
    * @onFromSubmit(value:forgroup)
    * @param data submitted to the database
@@ -95,6 +97,7 @@ export class EmployeeFormPresenterService implements OnInit {
     data.controls['profile'].setValue(this.baseString ? this.baseString : '');
     if (data.valid) {
       this.formData.next(data.value);
+      this.communication._getEmpId.next('');
       data.reset();
     }
   }

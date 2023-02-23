@@ -42,6 +42,7 @@ export class EmployeeListPresentationComponent implements OnInit {
   }
 
   openForm() {
+    this.router.navigate(['/employees/add-employee']);
     this.overlaySerive.open(EmployeeFormContainerComponent);
   }
   deleteEmployee(emp: employee) {

@@ -89,12 +89,15 @@ export class EmployeeFormPresentationComponent implements OnInit {
   public onSubmit() {
     this.employeeFormPresenterService.onFormSubmit(this.employeeForm);
     this.overlayService.overlayRef.detach();
+    this.router.navigate(['/employees/employees-list']);
     console.log(this.employeeForm);
   }
   /**
    * form cancel
    */
   public onCancel() {
+    this.router.navigate(['/employees/employees-list']);
     this.overlayService.overlayRef.detach();
+    this.employeeFormPresenterService.onCancel();
   }
 }
