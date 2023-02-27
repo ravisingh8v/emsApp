@@ -40,12 +40,19 @@
   @extend %common-after;
   @extend %common-hover-text;
 }
+.inactive {
+  background: red;
+}
 .sidebar-item {
   a {
     color: $primary;
     border-radius: 50%;
     height: 80px;
     width: 80px;
+    @include media-breakpoint-down(sm) {
+      height: 50px;
+      width: 50px;
+    }
   }
   &:nth-child(1) {
     &::before {

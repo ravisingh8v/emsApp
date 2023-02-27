@@ -1,6 +1,7 @@
 <div class="form bg-white p-5 card">
+  <!-- Form Start  -->
   <form action="" class="w-100" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
-    <!-- profile  -->
+    <!--IMAGE: profile  -->
     <div>
       <input type="file" class="form-control d-none" id="profile" (change)="onFileSelect($event)">
       <label class="profile d-flex justify-content-center align-items-center" for="profile">
@@ -60,5 +61,5 @@
       <button class="btn btn-transparent form ms-1 w-50" type="reset" (click)="onCancel()">Cancel</button>
     </div>
   </form>
-
+  <!-- Form End  -->
 </div>

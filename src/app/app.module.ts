@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     ShareModule,
   ],
-  providers: [OverlayModule, EmployeeCommunicationService, EmployeeApiService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

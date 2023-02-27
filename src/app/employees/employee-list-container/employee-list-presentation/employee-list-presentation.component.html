@@ -1,12 +1,12 @@
 <div class="list_main_wrapper">
   <!-- search and add button  -->
-  <div class="search-section bg-white d-flex  justify-content-between align-items-center py-4 position-sticky">
+  <div class="search-section bg-white d-flex  justify-content-between align-items-center py-2 py-sm-4 position-sticky">
     <div class="search">
       <input type="text" class="form-control bg-white" placeholder="Search" [(ngModel)]="search">
     </div>
-    <a class="add-emplopyee action-btn bg-primary rounded-pill fs-6" (click)="openForm()">Add
-      a new
-      employee</a>
+    <a class="add-emplopyee action-btn bg-primary rounded-pill fs-6 ms-sm-0 ms-1" (click)="openForm()">Add
+      <span class="d-none d-sm-inline">a new
+        employee</span></a>
   </div>
   <!-- employees list  -->
   <div class="list-wrapper">

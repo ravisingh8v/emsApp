@@ -12,6 +12,7 @@ import { EmployeeApiService } from './service/employee-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeeCommunicationService } from './service/employee-communication.service';
 import { ShareModule } from '../share/share.module';
+import { OverlayService } from '../core/service/overlay.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,8 @@ import { ShareModule } from '../share/share.module';
     EmployeesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    // HttpClientModule,
     ShareModule,
   ],
-  providers: [],
+  providers: [OverlayService, EmployeeCommunicationService, EmployeeApiService],
 })
 export class EmployeesModule {}

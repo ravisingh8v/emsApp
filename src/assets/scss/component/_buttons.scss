@@ -8,4 +8,7 @@
   &:hover {
     color: $white;
   }
+  @include media-breakpoint-down(sm) {
+    padding: 7px 10px;
+  }
 }

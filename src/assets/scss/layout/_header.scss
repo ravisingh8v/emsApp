@@ -57,3 +57,29 @@
   z-index: 100;
   top: -25px;
 }
+// .hamburger-menu {
+//   opacity: 0;
+//   visibility: hidden;
+//   transition: all 0.2s linear;
+// }
+// #hamburger-menu:checked ~ .hamburger-menu {
+//   display: flex;
+//   flex-direction: column;
+//   z-index: 1000;
+//   background-color: aqua;
+//   opacity: 1;
+//   visibility: visible;
+// }
+// .close-menu {
+//   display: none;
+//   transition: all 2s linear;
+// }
+// #hamburger-menu:checked ~ .close-menu {
+//   display: flex;
+//   z-index: 100001;
+// }
+// #close-menu:checked ~ .hamburger-menu {
+//   opacity: 0;
+//   visibility: hidden;
+//   transition: all 0.2s linear;
+// }

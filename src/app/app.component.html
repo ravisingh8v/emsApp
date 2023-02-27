@@ -1,13 +1,14 @@
 <div class="h-100 d-flex flex-column bg-light">
+
   <div class="px-3 pt-3">
     <app-header></app-header>
   </div>
-  <section class="flex-grow-1 d-flex mx-3 mt-3 overflow-hidden pb-2">
+  <section class="flex-grow-1 d-flex mx-0 ms-1 mx-sm-3 mt-3 overflow-hidden pb-2">
     <!-- sidebar  -->
     <div>
       <app-sidebar></app-sidebar>
     </div>
-    <main class="flex-grow-1 bg-white shadow rounded-0 rounded-end px-5 pt-4 overflow-auto pb-2">
+    <main class="flex-grow-1 bg-white shadow rounded-0 rounded-end px-3 px-sm-5 pt-4 overflow-auto pb-2">
       <router-outlet></router-outlet>
     </main>
   </section>
