@@ -7,58 +7,66 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  public link1: boolean;
-  public link2: boolean;
-  public link3: boolean;
-  public link4: boolean;
-  public link5: boolean;
+  public employeesList: boolean;
+  public whosAway: boolean;
+  public news: boolean;
+  public events: boolean;
+  public settings: boolean;
   public activeLinkText?: string;
-  constructor(private router: ActivatedRoute) {
-    this.link1 = true;
-    this.link2 = this.link3 = this.link4 = this.link5 = false;
+  constructor() {
+    this.employeesList = true;
+    this.whosAway = this.news = this.events = this.settings = false;
   }
   ngOnInit(): void {
+    /**
+     * Getting Url Path for current active page
+     */
     const url = window.location.href;
-
     const activeLinkLength = url.split('/').length - 1;
     var activeLinkText = url.split('/')[activeLinkLength];
+    /**
+     * Active the style based on page
+     */
     if (activeLinkText == 'employees-list') {
-      this.link1 = true;
+      this.employeesList = true;
     } else if (activeLinkText == 'whosaway') {
-      this.link1 = false;
-      this.link2 = true;
+      this.employeesList = false;
+      this.whosAway = true;
     } else if (activeLinkText == 'news') {
-      this.link1 = false;
-      this.link3 = true;
+      this.employeesList = false;
+      this.news = true;
     } else if (activeLinkText == 'events') {
-      this.link1 = false;
-      this.link4 = true;
+      this.employeesList = false;
+      this.events = true;
     } else if (activeLinkText == 'settings') {
-      this.link1 = false;
-      this.link5 = true;
+      this.employeesList = false;
+      this.settings = true;
     }
   }
-
-  active(e: any) {
-    if (e == 1) {
-      this.link1 = true;
-      this.link2 = this.link3 = this.link4 = this.link5 = false;
+  /**
+   * Sidebar Active Click
+   * @param link
+   */
+  active(link: any) {
+    if (link == 1) {
+      this.employeesList = true;
+      this.whosAway = this.news = this.events = this.settings = false;
     }
-    if (e == 2) {
-      this.link2 = true;
-      this.link1 = this.link3 = this.link4 = this.link5 = false;
+    if (link == 2) {
+      this.whosAway = true;
+      this.employeesList = this.news = this.events = this.settings = false;
     }
-    if (e == 3) {
-      this.link1 = this.link2 = this.link4 = this.link5 = false;
-      this.link3 = true;
+    if (link == 3) {
+      this.employeesList = this.whosAway = this.events = this.settings = false;
+      this.news = true;
     }
-    if (e == 4) {
-      this.link1 = this.link2 = this.link3 = this.link5 = false;
-      this.link4 = true;
+    if (link == 4) {
+      this.employeesList = this.whosAway = this.news = this.settings = false;
+      this.events = true;
     }
-    if (e == 5) {
-      this.link1 = this.link2 = this.link3 = this.link4 = false;
-      this.link5 = true;
+    if (link == 5) {
+      this.employeesList = this.whosAway = this.news = this.events = false;
+      this.settings = true;
     }
   }
 }

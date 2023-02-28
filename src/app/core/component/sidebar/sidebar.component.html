@@ -2,7 +2,7 @@
   <div>
     <ul class=" fw-semibold">
       <li (click)="active(1)" class="sidebar-item rounded-pill rounded-end p-1 pe-2"
-        [ngClass]="{'active': link1 ? true : false}" routerLink="employees">
+        [ngClass]="{'active': employeesList ? true : false}" routerLink="employees">
 
         <a class="d-flex flex-column align-items-center justify-content-center bg-secondary-transparent">
           <span class="bi bi-people fs-5"></span>
@@ -10,7 +10,7 @@
         </a>
       </li>
       <li (click)="active(2)" class="sidebar-item rounded-pill rounded-end p-1 pe-2 mt-4 mt-sm-2"
-        [ngClass]="{'active': link2 ? true : false}" routerLink="whosaway">
+        [ngClass]="{'active': whosAway ? true : false}" routerLink="whosaway">
 
         <a class="d-flex flex-column align-items-center justify-content-center bg-secondary-transparent">
           <span class="bi bi-compass fs-5"></span>
@@ -18,7 +18,7 @@
         </a>
       </li>
       <li (click)="active(3)" class="sidebar-item rounded-pill rounded-end p-1 pe-2 mt-4 mt-sm-2 "
-        [ngClass]="{'active': link3 ? true : false}" routerLink="news">
+        [ngClass]="{'active': news ? true : false}" routerLink="news">
 
         <a class="d-flex flex-column align-items-center justify-content-center bg-secondary-transparent ">
           <span class="bi bi-newspaper fs-5"></span>
@@ -26,7 +26,7 @@
         </a>
       </li>
       <li (click)="active(4)" class="sidebar-item rounded-pill rounded-end p-1 pe-2 mt-4 mt-sm-2"
-        [ngClass]="{'active': link4 ? true : false}" routerLink="events">
+        [ngClass]="{'active': events ? true : false}" routerLink="events">
 
         <a class="d-flex flex-column align-items-center justify-content-center bg-secondary-transparent">
           <span class="bi bi-calendar4-event fs-5"></span>
@@ -34,7 +34,7 @@
         </a>
       </li>
       <li (click)="active(5)" class="sidebar-item rounded-pill rounded-end p-1 pe-2 mt-4 mt-sm-2"
-        [ngClass]="{'active': link5 ? true : false}" routerLink="settings">
+        [ngClass]="{'active': settings ? true : false}" routerLink="settings">
 
         <a class="d-flex flex-column align-items-center justify-content-center bg-secondary-transparent">
           <span class="bi bi-gear fs-5"></span>

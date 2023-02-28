@@ -7,9 +7,8 @@ import {
   Output,
 } from '@angular/core';
 import { Component } from '@angular/core';
-import { Form, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 import { OverlayService } from 'src/app/core/service/overlay.service';
 import { employee } from '../../employee.model';
 import { EmployeeCommunicationService } from '../../service/employee-communication.service';
@@ -26,23 +25,23 @@ export class EmployeeFormPresentationComponent implements OnInit {
   @Output() add: EventEmitter<employee>;
   @Output() empId: EventEmitter<number>;
   @Output() editEmp: EventEmitter<employee>;
+  // Getting Employee for Edit
   @Input() set getEmployee(res: employee) {
     if (res) {
       this._getEmployee = res;
       this.employeeForm.patchValue(this._getEmployee);
-      this.employeeForm.controls['profile'].patchValue(
-        this._getEmployee.profile
-      );
-      // console.log(res.id);
+      this.patchProfile = this.base64 ? this.base64 : this._getEmployee.profile;
     }
   }
   public get getEmployee() {
     return this._getEmployee;
   }
-
+  // Variables
+  public patchProfile?: string;
   private _getEmployee!: employee;
   public employeeForm: FormGroup;
   public base64!: string;
+
   constructor(
     private employeeFormPresenterService: EmployeeFormPresenterService,
     private overlayService: OverlayService,
@@ -56,6 +55,7 @@ export class EmployeeFormPresentationComponent implements OnInit {
 
     this.employeeForm = this.employeeFormPresenterService.formBuild();
   }
+
   ngOnInit(): void {
     this.employeeFormPresenterService.formData$.subscribe(
       (formData: employee) => {
@@ -90,7 +90,7 @@ export class EmployeeFormPresentationComponent implements OnInit {
    *
    */
   public onSubmit() {
-    this.employeeFormPresenterService.onFormSubmit(this.employeeForm);
+    this.employeeFormPresenterService.onFormSubmit(this.employeeForm, this._getEmployee.profile);
     this.overlayService.overlayRef.detach();
     this.router.navigate(['/employees/employees-list']);
     console.log(this.employeeForm);

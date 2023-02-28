@@ -13,13 +13,16 @@ import { EmployeeCommunicationService } from '../service/employee-communication.
 export class EmployeeFormContainerComponent implements OnInit {
   public getEmployee$: Observable<any>;
   public id!: number;
+
   constructor(
     private _httpService: EmployeeApiService,
     private communicationService: EmployeeCommunicationService
   ) {
     this.getEmployee$ = new Observable();
   }
+
   ngOnInit(): void {}
+
   /**
    *
    * @param formData getting and sending to the Database
@@ -27,10 +30,21 @@ export class EmployeeFormContainerComponent implements OnInit {
   getFormData(formData: employee) {
     this._httpService.postData(formData).subscribe((res) => {});
   }
+
+  /**
+   * Getting Id From form and get data from database
+   * @param id
+   */
   getEmpId(id: number) {
     this.id = id;
     this.getEmployee$ = this._httpService.getEmployeeById(this.id);
   }
+
+  /**
+   * Update Employee data on database
+   * @param employee
+   *getting updated list to rerender the list
+   */
   editEmp(employee: employee) {
     this._httpService.updateEmployee(employee, this.id).subscribe((res) => {});
     this._httpService.getData().subscribe((updatedEmployeeList: employee[]) => {

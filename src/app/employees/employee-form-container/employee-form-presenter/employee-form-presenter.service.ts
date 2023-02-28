@@ -9,8 +9,8 @@ import { EmployeeCommunicationService } from '../../service/employee-communicati
 export class EmployeeFormPresenterService implements OnInit {
   public image_file!: File;
   public baseString!: string;
-  public profileImage: Subject<any>;
-  public formData: Subject<any>;
+  public profileImage: Subject<string>;
+  public formData: Subject<employee>;
   public formData$: Observable<any>;
   public empId!: Subject<number>;
 
@@ -20,7 +20,6 @@ export class EmployeeFormPresenterService implements OnInit {
    */
   constructor(
     private _formb: FormBuilder,
-    private _Route: Router,
     public communication: EmployeeCommunicationService
   ) {
     this.formData = new Subject();
@@ -28,46 +27,18 @@ export class EmployeeFormPresenterService implements OnInit {
     this.profileImage = new Subject();
     this.empId = new Subject();
   }
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   /**
    *
-   * @returns
+   * @returns Form Builder Template
    */
   public formBuild(): FormGroup {
     return this._formb.group({
       profile: [''],
-      fullName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.pattern(/^[a-zA-z ]*$/),
-        ],
-      ],
-      department: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(/^[a-zA-z ]*$/),
-          Validators.minLength(4),
-        ],
-      ],
-      phoneNumber: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(/^([0-9])*$/),
-          Validators.minLength(10),
-          Validators.maxLength(10),
-        ],
-      ],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]+[1]*$/),
-        ],
-      ],
+      fullName: ['', [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-zA-z ]*$/),]],
+      department: ['', [Validators.required, Validators.pattern(/^[a-zA-z ]*$/), Validators.minLength(4),]],
+      phoneNumber: ['', [Validators.required, Validators.pattern(/^([0-9])*$/), Validators.minLength(10), Validators.maxLength(10)]],
+      email: ['', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]+[1]*$/)]],
     });
   }
 
@@ -86,6 +57,8 @@ export class EmployeeFormPresenterService implements OnInit {
       this.profileImage.next(this.baseString);
     };
   }
+
+  // reseting the subject value to stop patching the last edit
   onCancel() {
     this.communication._getEmpId.next('');
   }
@@ -93,8 +66,10 @@ export class EmployeeFormPresenterService implements OnInit {
    * @onFromSubmit(value:forgroup)
    * @param data submitted to the database
    */
-  onFormSubmit(data: FormGroup) {
-    data.controls['profile'].setValue(this.baseString ? this.baseString : '');
+  onFormSubmit(data: FormGroup, profile: any) {
+    // data.controls['profile'].setValue
+    data.controls['profile'].setValue(this.baseString ? this.baseString : profile);
+
     if (data.valid) {
       this.formData.next(data.value);
       this.communication._getEmpId.next('');

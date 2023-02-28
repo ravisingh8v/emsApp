@@ -6,10 +6,11 @@ import { ComponentPortal } from '@angular/cdk/portal';
 })
 export class OverlayService {
   public overlayRef!: OverlayRef;
+
   constructor(private overlay: Overlay) {}
+
   open<T>(component: ComponentType<T>) {
     this.overlayRef = this.overlay.create({
-      // backdropClass: 'overlay-backdrop',
       panelClass: 'overlay-panel',
       hasBackdrop: true,
       positionStrategy: this.overlay
@@ -18,6 +19,7 @@ export class OverlayService {
         .centerVertically()
         .centerHorizontally(),
     });
+
     const portal = new ComponentPortal(component);
     const comopnentRef = this.overlayRef.attach(portal);
 

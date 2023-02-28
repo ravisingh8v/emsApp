@@ -5,7 +5,7 @@
     <div>
       <input type="file" class="form-control d-none" id="profile" (change)="onFileSelect($event)">
       <label class="profile d-flex justify-content-center align-items-center" for="profile">
-        <img src="{{base64}}" alt="">
+        <img src="{{base64? base64:patchProfile}}" alt="">
       </label>
     </div>
     <!-- full name -->
